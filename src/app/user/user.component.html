@@ -1,0 +1,245 @@
+<div style="background: url(./assets/user11.jpg); background-repeat: no-repeat;background-position: center center; background-size: cover; height: 1000px; overflow: hidden;">
+
+    <!-- 777777777777777777777777777777777navigation -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="#"><h1>Techizant</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+                        <a class="nav-link"data-toggle="modal" data-target="#Update" ><b>Update Progress</b></a>
+            </li> 
+          </ul>
+         
+          <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="color:ghostwhite; border: 1px grey solid; margin-right: 40px; background-color: rgba(0, 0, 0, 0.4);">
+                    <i class="fas fa-user"></i>
+                    <b>User</b></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:ghostwhite; border: 1px grey solid; background-color: rgba(0, 0, 0, 0.4); ">
+                    <a data-toggle="modal" data-target="#myModal" class="dropdown-item" style="color:thistle">Update Info</a>
+                    <a class="dropdown-item" style="color:thistle" (click)="logout()">Signout</a>
+                </div>
+            </div>
+        </div>
+      </nav>
+      <h3>Welcome,  {{currentUser.first_name}} {{currentUser.last_name}}</h3>
+      
+         
+          <!--  66666666666666666666666666666666666666666666 searching -->
+<div class="card" >
+    <h3>You can check our mentors here. Have a look!</h3><br>
+      <p>Search here for the technology you need training for and the time you prefer to start it!</p>
+      
+    <form class="form-inline my-2 my-lg-0" [formGroup]="SearchForm" (ngSubmit)="search()">
+      <div class="container">
+      <input class="form-control mr-sm-2" type="search" [formControl]="keyword" placeholder="Search the tech" aria-label="Search">  
+    </div>
+    <div class="container">
+      <p>Please Select preferred timing</p>
+      <input class="form-control mr-sm-2" type="time" [formControl]="from" aria-label="time">
+      <input class="form-control mr-sm-2" type="time" [formControl]="till" aria-label="time"><br>
+      <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
+    </div>
+    </form>
+    
+  </div>
+          <br><br><br><br><br><br><br><br>
+
+          <!-- 7777777777777777777777 current training -->
+          <table>
+            <tr>
+                <td>
+                        <div class="flip-card">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img src="./assets/proposed.jpg" alt="Avatar" class="flip-card-inner">
+                                  </div>
+                                  <div class="flip-card-back">
+                                        <button class="btn" routerLink="/user-trainings" style=" height: 300px; width:300px; border-radius: 100%"></button>
+                                    <h2>Proposed training</h2> 
+                                    <p>(Requested)</p>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                </td>
+                <td>
+                        <div class="flip-card">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img src="./assets/confirmed.jpg" alt="Avatar" class="flip-card-inner">
+                                  </div>
+                                  <div class="flip-card-back">
+                                        <button class="btn" type="button" routerLink="/user-trainings" [value]="proposed" (click)="Active1()" style=" height: 300px; width:300px; border-radius: 100%"></button>
+                                    <h2>Confirmed training</h2> 
+                                    <p></p>
+                                   
+                                  </div>
+                                </div>
+                              </div>
+                </td>
+                <td>
+                        <div class="flip-card">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img src="./assets/current1.jpg" alt="Avatar" class="flip-card-inner"> 
+                                  </div>
+                                  <div class="flip-card-back">
+                                    <button class="btn active-proposed-train" routerLink="/user-trainings" style=" height: 300px; width:300px; border-radius: 100%"></button>
+                                    <h2>Current training</h2> 
+                                    <p>(Ongoing)</p>
+                                   
+                                  </div>
+                                </div>
+                              </div>
+                </td>
+                <td>
+                        <div class="flip-card">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img src="./assets/completed.jpg" alt="Avatar" class="flip-card-inner">
+                                  </div>
+                                  <div class="flip-card-back">
+                                        <button class="btn" routerLink="/user-trainings" style=" height: 300px; width:300px; border-radius: 100%"></button>
+                                    <h2>Completed training</h2> 
+                                    <p></p>
+                                   
+                                  </div>
+                                </div>
+                              </div>
+                </td>
+            </tr>
+          </table>
+
+          <!-- 77777777777777777777777777777777 update training -->
+          <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="Update" role="dialog">
+              <div class="modal-dialog">
+              <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" style="text-align: center;">Current Trainer</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body" style="margin: 0 auto;">
+                          <form [formGroup]="UpdateRateForm" (ngSubmit)="rateMentor()">
+                                  <div class="form-group">
+                                      <table border="2px">
+                                          <tr>
+                                              <td>Id of your Current trainer: </td>
+                                              <td><p>{{f.mentorId}}</p></td>
+                                          </tr>  
+                                        <tr>
+                                              <td>Name of your Current trainer: </td>
+                                              <td><p>{{f.mentorName}}</p></td>
+                                          </tr>
+                                          <tr>
+                                                  <td>Technology id: </td>
+                                                  <td><p>{{f.skillId}}</p></td>
+                                          </tr>
+                                          <tr>
+                                              <td>Technology Name: </td>
+                                              <td><p>{{f.skillName}}</p></td>
+                                          </tr>
+                                          <tr>
+                                          <td>Course Content: </td>
+                                          <td><p>{{f.toc}}</p></td>
+                                          </tr>
+                                          <tr>
+                                              <td>Prerequisites: </td>
+                                              <td><p>{{f.prerequisites}}</p></td>
+                                          </tr>
+                                          <tr>
+                                                  <td>Fees: </td>
+                                                  <td><p>{{f.fees}}</p></td>
+                                          </tr>
+                                          <tr>
+                                              <td>Status: </td>
+                                              <td><p>{{f.status}}</p></td>
+                                      </tr>
+                                      </table>   
+                                  </div>
+                                  <div class="form-group">
+                                      <h4>Your Rating: </h4>
+                                      <div class="rating rating2">
+                                      <a href="#5" title="Give 5 stars">★</a>
+                                      <a href="#4" title="Give 4 stars">★</a>
+                                      <a href="#3" title="Give 3 stars">★</a>
+                                      <a href="#2" title="Give 2 stars">★</a>
+                                      <a href="#1" title="Give 1 star">★</a>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <h4>Your Feedback: </h4>
+                                      <textarea cols="25"></textarea>
+                                  </div>
+                                  <a routerLink="/user" data-dismiss="modal" class="btn btn-large btn-primary" >submit</a>
+                          </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                        <!-- 6666666666666666666666666666666666666update info modal -->
+        
+      <div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" style="text-align: center;">Update Info</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" style="margin: 0 auto;">
+                  <form [formGroup]="UpdateForm" (ngSubmit)="update()">
+                          <div class="form-group">
+                              <!-- <label for="email" >Email:</label>  -->
+                              <input type="email" placeholder="Email id as Username" formControlName="username" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                              <!-- <label for="password" >Password:</label>  -->
+                              <input type="password" placeholder="Password" formControlName="password" class="form-holder"/>
+                          </div>
+                          <div class="form-group">
+                              
+                              <input type="password" placeholder="ReType-Password" formControlName="password" class="form-holder"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" placeholder="First Name" formControlName="first_name" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                            <input type="text" placeholder="Last Name" formControlName="last_name" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                            <input type="tel" placeholder="Contact Number" formControlName="contact_number" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                            <input type="tel" placeholder="Pincode" formControlName="reg_code" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                            <input type="text" placeholder="linkedin url" formControlName="linkedin_url" class="form-holder" />
+                          </div>
+                          <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Update</button>
+                  </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

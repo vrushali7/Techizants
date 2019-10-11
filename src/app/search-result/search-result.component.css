@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+}
+.body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: transparent;
+    color: white;
+    font-size: 16px;
+}
+    .main-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      padding: 30px;
+      cursor: default;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      /* width: 23%; */
+      height: 480px;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 0 auto;
+      
+       /* background: -webkit-linear-gradient(268deg, #f24223 0%, #ca1b1b 100%);
+        background-image: linear-gradient( 135deg, #FFF720 10%, #3CD500 100%);  */
+      background-image: linear-gradient( 135deg, #0aa3e6 10%, #ffffff 100%);
+      background-image: linear-gradient( 135deg, #ffffff 10%, #0aa3e6 100%);
+      
+      
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+      transform-style: preserve-3d;
+      transform: perspective(500px);
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .card2 {
+       background-image: linear-gradient( 135deg, #F97794 10%, #623AA2 100%);
+    }
+    
+    .card3 {
+       background-image: linear-gradient( 135deg, #FF6FD8 10%, #3813C2 100%);
+    }
+    .trainer-container {
+      height: 150px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .trainer {
+      height: auto;
+      max-width: 100%;
+      transform: translateZ(50px);
+      max-height: 145px;
+      width: 240px;
+      position: relative;
+      left: 0;
+      top: 0;
+      
+    }
+    .category {
+      transform: translateZ(30px);
+      font-weight: bolder;
+      font-size: 24px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+      align-self: start;
+    }
+      .sub-head {
+        font-size: 12px;
+        color: rgba(white, 0.3);
+        margin-bottom: 2px;
+      }
+      
+    
+    .description {
+      transform: translateZ(25px);
+      text-align: justify;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+    }
+    a {
+      text-decoration: none;
+      border: 0;
+      outline: 0;
+    }
+    .read-more {
+      text-decoration: none;
+      border: 0;
+      outline: 0;
+     /* width: 48%; */
+    height: 40px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    transform: translateZ(30px);
+      font-size: 16px;
+      font-weight: medium;
+      /* &hover {
+        cursor: pointer;
+      } */
+  }
+    .js-tilt-glare {
+      pointer-events: none;
+    }
+  

@@ -1,0 +1,211 @@
+<div style="background: url(./assets/admin1.png); background-repeat: repeat; background-position:center; background-size: cover; height: 650px;">
+    <!-- 44444444444444444444444444444444444444navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <a class="navbar-brand" href="#" style="color: ivory"><h1>Techizant</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+               
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:ghostwhite; border: 1px grey solid; margin-right: 20px; background-color: rgba(0, 0, 0, 0.4);">
+                        <i class="fas fa-user-tie"></i>
+                    <b>Admin</b>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:ghostwhite; border: 1px grey solid; background-color: rgba(0, 0, 0, 0.4); ">
+                    <!-- <a class="dropdown-item" href="#">Action</a> -->
+                    <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal2">Edit Info</a>
+                    <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" href="index1.html">Sign out</a>
+                  </div>
+                </li>
+                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              </form>
+            </div>
+          </nav>
+                    
+                
+                <!-- 77777777777777777777777777777777 accordian -->
+                <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Technology Changes
+                      </button>
+                    </h2>
+                  </div>
+                
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                     
+                    <div class="card-body" >
+                        
+                      <table border="2px">
+                        <tr>
+                          <th>Technology Id</th>
+                          <th>Technology Name</th>
+                          <th>Course content</th>
+                          <th>Prerequisites</th>
+                          <th>Fees</th>
+                          <th>Number of trainers available</th>
+                      </tr>
+                      <tr *ngFor = "let tech of technology">
+                          <td>{{tech.techid}}</td>
+                          <td>{{tech.name}}</td>
+                          <td>{{tech.toc}}</td>
+                          <td>{{tech.prerequisites}}</td>
+                          <td>{{tech.fees}}</td>
+                        <td><button type="button" value="remove" name="remove" (click)="remove(tech.techid)">Remove</button></td>
+                    </tr>
+                      </table>
+                      
+                    </div>
+                 
+                  <button type="button" value="add" name="add" data-toggle="modal" data-target="#myModal1">Add</button>
+                      
+                </div>
+                </div>
+              <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" (click)="getByRoleUser()"  type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Mentors & Users.
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="container" >
+                      <div class="row">Mentors</div>
+                  <div class="row">
+                    
+                      <table border="2px">
+                        <tr>
+                          <th>Mentor Id</th>
+                          <th>Mentor Name</th>
+                          <th>Mentor Username</th>
+                          <th>Active Status</th>
+                          <th>Contact Number</th>
+                        </tr>
+                        <tr *ngFor="let user of mentors">
+                          <td>{{user.id}}</td>
+                          <td>{{user.first_name}} {{user.last_name}}</td>
+                          <td>{{user.username}}</td>
+                          <td>{{user.active}}</td>
+                          <td>{{user.contact_number}}</td>
+                          <td><button *ngIf="user.active" type="button" value="Block" (click)="deactivate(user.id)" >Block</button></td>
+                        <td><button *ngIf="!user.active" type="button" value="Block" (click)="activate(user.id)" >Unblock</button></td>
+                        </tr>
+                      </table>
+                  </div>
+                  <div class="row">Users</div>
+                      <div class="row">
+                   
+                      <table border="2px">
+                        <tr>
+                          <th>User Id  </th>
+                          <th>User Name</th>
+                          <th>User Username</th>
+                          <th>Active Status</th>
+                          <th>Contact Number</th>
+                        </tr>
+                        <tr *ngFor="let user of users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.active}}</td>
+                        <td>{{user.contact_number}}</td>
+                        <td><button *ngIf="user.active" type="button" value="Block" (click)="deactivate(user.id)" >Block</button></td>
+                        <td><button *ngIf="!user.active" type="button" value="Block" (click)="activate(user.id)" >Unblock</button></td>
+                        </tr>
+                      </table>
+                    
+                  </div>
+                  </div>
+                  </div>
+              </div>
+
+ <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" (click)="getAllPayments()">
+                       Payments
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <table border="2px">
+                        <tr> 
+                          <th>Payment Id</th>
+                          <th>Payment Type</th>
+                          <th>Amount</th>
+                          <th>Mentor Id</th>
+                          <th>Mentor name</th>
+                          <th>User Id</th>
+                          <th>User name</th>
+                          <th>Training Id</th>
+                          <th>Training name</th>
+                          <th>Payment level</th>
+                          <th>Date of Last Transaction</th>
+                      </tr>
+                      <tr *ngFor="let pay of payment">
+                          <td>{{pay.id}}</td>
+                        <td>{{pay.txnType}}</td>
+                        <td>{{pay.amount}}</td>
+                          <td>{{pay.mentorId}}</td>
+                          <td>{{pay.mentorName}}</td>
+                            <td>{{pay.userId}}</td>
+                              <td>{{pay.userName}}</td>
+                                <td>{{pay.trainingId}}</td>
+                                  <td>{{pay.skillName}}</td>
+                                    <td>{{pay.totalAmountToMentor}}</td>
+                                      <td>{{pay.DateOfTransaction}}</td>
+                    </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                </div>
+                <!-- 6666666666666666666666666666666666666Add trainings modal -->
+           
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" style="text-align: center;">Add Training</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="margin: 0 auto;">
+                <form [formGroup]="TechnologyForm" (ngSubmit)="addTech()">
+                        <div class="form-group">
+                            <input type="text" placeholder="Training name" class="form-holder" formControlName="name"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="course content" class="form-holder" formControlName="toc"/>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" placeholder="Prerequisites" class="form-holder" formControlName="prerequisites"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="tel" placeholder="Fees" class="form-holder" formControlName="fees"/>
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Add</button>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

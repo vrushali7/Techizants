@@ -1,0 +1,44 @@
+<div class="body" style="background: url(./assets/SearchResult.jpg); height: 1000px; background-repeat: no-repeat; background-position: center;background-size: cover;">
+    <h1>Your Search Results..</h1>
+    <div class="row">
+
+            <div class="col-md-4" *ngFor = "let search of search">
+     <div class="main-container"> 
+        <div class="card shadow " data-tilt data-tilt-max="30" data-tilt-glare data-tilt-max-glare="0.55">
+            <div class="trainer-container">
+                <img class="search" src="./assets/id.jpg" alt="photo">
+            </div>                
+            <div class="description">
+                <table border="2px">
+                   
+                    <tr>
+                        <th>Mentor Name:</th>
+                        <td>{{search.mentor_name}}</td></tr>
+                    <tr>
+                        <th>Technology Name:</th>
+                        <td>{{search.technologyname}}</td>
+                    </tr>
+                    <tr> 
+                        <th>Toc:</th>   
+                        <td>{{search.toc}}</td>
+                    </tr>
+                    <tr>
+                        <th>Prerequisites:</th>
+                        <td>{{search.prerequisites}}</td></tr>
+                    <tr>
+                        <th>Fees:</th>
+                        <td>{{search.fees}}</td>
+                    </tr>
+                        
+                </table>
+            </div>
+            <a >
+                <button class="request" routerLink="/user" (click)="request(search)">Request</button>
+            </a>   
+        </div>
+        </div>
+        </div>
+     </div> 
+
+</div>
+    

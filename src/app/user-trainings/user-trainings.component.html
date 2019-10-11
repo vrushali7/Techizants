@@ -1,0 +1,120 @@
+
+<div style="background: url(./assets/usertrainings1.jpg); height: 1000px; background-repeat: no-repeat; background-position: center; background-size: cover;">
+    
+    <!-- 77777777777777777777777777777777 accordian -->
+    <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Proposed Training
+                  </button>
+                </h2>
+              </div>
+            
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table border="2px">
+                    <tr>
+                      <th>Technology Name</th>
+                      <th>Trainer Name</th>
+                      <th>Status</th>
+                  </tr>
+                  <tr *ngFor="let train of trainings">
+                      <td>{{train.skillName}}</td>
+                      <td>{{train.mentorName}}</td>
+                      <td>{{train.status}}</td>
+                    
+                </tr>
+                
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Confirmed Training
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table border="2px">
+                    <tr>
+                        <th>Technology Name</th>
+                        <th>Trainer Id</th>
+                        <th>Trainer Name</th>
+                        <th>Status</th>
+                        <th>Do Payment</th>
+                  </tr>
+                  <tr *ngFor="let train of trainings">
+                      <td>{{train.skillName}}</td>
+                      <td>{{train.mentorId}}</td>
+                      <td>{{train.mentorName}}</td>
+                      <td>{{train.status}}</td>
+                      <button  type="button" value="Pay" name="Pay" routerLink="/payment-gateway" >Pay</button>
+                </tr>
+                  </table>
+                  
+                 
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Current Training
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table border="2px">
+                      <tr>
+                          <th>Technology Name</th>
+                          <th>Trainer Name</th>
+                          <th>Status</th>
+                    </tr>
+                    <tr *ngFor="let train of trainings">
+                        <td>{{train.skillName}}</td>
+                        <td>{{train.mentorName}}</td>
+                        <td>{{train.status}}</td>
+                      
+                  </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Completed Training
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <table border="2px">
+                          <tr>
+                           
+                              <th>Technology Name</th>
+                              <th>Trainer Name</th>
+                              <th>Status</th>
+                        </tr>
+                        <tr *ngFor="let train of trainings">
+                            <td>{{train.skillName}}</td>
+                            <td>{{train.mentorName}}</td>
+                            <td>{{train.status}}</td>
+                          
+                      </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            
+            </div>
+</div>

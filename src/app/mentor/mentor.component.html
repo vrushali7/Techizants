@@ -1,0 +1,212 @@
+<div style="background: url(./assets/mentor2.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; height: 1000px;">
+    <!-- 44444444444444444444444444444444444444navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <a class="navbar-brand" href="#"><h1>Techizant</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+               
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:ghostwhite; border: 1px grey solid; margin-right: 20px; background-color: rgba(0, 0, 0, 0.4);">
+                        <i class="fas fa-user-tie"></i>
+                    <b>Mentor</b>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="color:ghostwhite; border: 1px grey solid; background-color: rgba(0, 0, 0, 0.4); ">
+                    <!-- <a class="dropdown-item" href="#">Action</a> -->
+                   
+                    <a class="dropdown-item"  data-toggle="modal" data-target="#update" (ngSubmit)="getUser()">Edit Info</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="logout()">Sign out</a>
+                  </div>
+                </li>
+                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              </form>
+            </div>
+          </nav>
+          <hr>
+          <h3><i>Welcome, {{currentUser.first_name}} {{currentUser.last_name}}</i> </h3>
+          <!-- 77777777777777777777777777777777 accordian -->
+        <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" (click)="showFeedbacks()">
+                        Your History
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <table border="2px">
+                        <tr>
+                          <th>Training Name</th>
+                          <th>Student Name</th>
+                          <th>Total Payment(in Rs.)</th>
+                          <th>Rating from student(out of 10)</th>
+                      </tr>
+                      <tr *ngFor="let feed of trainer">
+                          <td>{{feed.skillName}}</td>
+                          <td>{{feed.userName}}</td>
+                          <td>{{feed.fees}}</td>
+                          <td>{{feed.avgRating}}</td>
+                         
+                    </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="showFeedbacks()">
+                        Payments
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <table border="2px">
+                        <tr>
+                            <th>Student Id</th>
+                          <th>Student Name</th>
+                          <th>Training Id</th>
+                          <th>Training Name</th>
+                          <th>Payment</th>
+                      </tr>
+                      <tr *ngFor="let feed of trainer">
+                          <td>{{feed.userId}}</td>
+                          <td>{{feed.userName}}</td>
+                          <td>{{feed.skillId}}</td>
+                          <td>{{feed.skillName}}</td>
+                          <td>{{feed.amountReceived}}</td>
+                          
+                      </tr>
+                    
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" (click)="showFeedbacks()">
+                       Students Feedbacks
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <table border="2px">
+                        <tr>
+                            <th>Student Id</th>
+                          <th>Student name</th>
+                          <th>Rating</th>
+                          <th>Feedback</th>
+                      </tr>
+                      <tr *ngFor="let feed of trainer">
+                        <td>{{feed.userId}}</td>
+                        <td>{{feed.userName}}</td>
+                        <td>{{feed.avgRating}}</td>
+                        <td>{{feed.feedback}}</td>
+                    </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+             
+    
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" (click)="showRequests()">
+                     Requests
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <table border="2px">
+                      <tr>
+                        <th>Student Id</th>
+                        <th>Student name</th>
+                        <th>Training Id</th>
+                        <th>Training name</th>
+                        <th>Fees</th>
+                    </tr>
+                    <tr *ngFor="let train of trainings">
+                      <td>{{train.userId}}</td>
+                      <td>{{train.userName}}</td>
+                      <td>{{train.skillId}}</td>
+                      <td>{{train.skillName}}</td>
+                      <td>{{train.fees}}</td>
+                      <td><button type="submit" value="accept">Accept</button></td>
+                      <td><button type="submit" value="reject">Reject</button></td>
+                  </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- 777777777777777777777777777777777mentor sign up -->
+            <div class="container">
+              
+              <div class="modal fade" id="update" role="dialog">
+                <div class="modal-dialog">
+                
+                  <div class="modal-content" style="width:140%">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="text-align: center;">Mentor Sign Up</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="margin: 0 auto;">
+                      <form [formGroup]="UpdateMentorForm" (ngSubmit)="updateMentor()">
+                          <div class="form-group">
+                              <input type="number" placeholder="id" formControlName="id" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                              <input type="email" placeholder="Email id as Username" formControlName="username" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" placeholder="Password" formControlName="password" class="form-holder"/>
+                          </div>
+                          <div class="form-group">
+                              
+                              <input type="password" placeholder="ReType-Password" formControlName="password" class="form-holder"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" placeholder="First Name" formControlName="first_name" class="form-holder" />
+                          </div>
+                          <div class="form-group">
+                            <input type="text" placeholder="Last Name" formControlName="last_name" class="form-holder" />
+                          </div>
+                       <div>
+                          <input type="tel" placeholder="Contact Number" formControlName="contact_number" class="form-holder" />
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" placeholder="Pincode" formControlName="reg_code" class="form-holder" />
+                        </div>
+                        <div class="form-group">
+                          <input type="text" placeholder="linkedin url" formControlName="linkedin_url" class="form-holder" />
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" placeholder="Years of Experience" formControlName="years_of_experience" class="form-holder" />
+                        </div>
+                        <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Update</button>
+                </form>   
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-large btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+</div>
